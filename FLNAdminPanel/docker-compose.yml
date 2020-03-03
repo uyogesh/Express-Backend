@@ -1,0 +1,19 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: FLNAdminPanel
+    environment:
+      - APPLICATION_HOST=http://localhost
+      - APPLICATION_PORT=3000
+      - DATABASE_URL=mongodb://127.0.0.1:27017/fn
+      - DATABASE_SCHEMA=public
+      - DATABASE_SSL=false
+      - DATABASE_ENCRYPT=false
+      - AUTH_SECRET=0b8c2bb96d661fc0b2e14d0c55f604892628b05ea33b39e1b3c65764d2907dbd6872540b3ac98e10e0486c465d4c1e3f
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/usr/src/app
